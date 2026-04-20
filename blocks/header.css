@@ -1,0 +1,20 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color: #09125C;
+    border: solid 2px white;
+    height: 15vh;
+    border-radius: 20px;
+    color: antiquewhite;
+    font-size: 22px;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.header__text{
+    margin: 0;
+}
+
+.header__sesion{
+    margin: auto 0 auto auto;
+}

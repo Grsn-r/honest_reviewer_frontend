@@ -1,0 +1,12 @@
+.user{
+    display: flex;
+    flex-direction: row;
+    background-color: #09125C;
+    border: solid 2px white;
+    height: 10vh;
+    border-radius: 20px;
+    color: antiquewhite;
+    font-size: 22px;
+    justify-content: space-between;
+    padding: 0 10px;
+}

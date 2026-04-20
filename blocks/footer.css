@@ -1,0 +1,7 @@
+.footer{
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: transparent;
+    color: beige;
+    margin-right: 15px;
+}
