@@ -4,4 +4,7 @@
     background-color: transparent;
     color: beige;
     margin-right: 15px;
+    position: fixed;
+    bottom: 15px;
+    right: 150px;
 }
