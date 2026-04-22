@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import './App.css'
 import Header from './components/header/header.jsx'
 import Footer from './components/footer.jsx'
-import Main from './components/main/main.jsx'
+import Main from './components/main/reviews/Main.jsx'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import Register from './components/register.jsx';
 import Login from './components/login.jsx';
@@ -10,10 +10,20 @@ import * as auth from './utils/auth.js';
 import UserContext from './context/userContext.js';
 import api from './utils/api.js';
 
+
 function App() {
 
   const [logged, setIsLogged] = useState(false);
   const [user, setUser] = useState({});
+  const [popup, setPopup] = useState(null);
+
+  function handlePopup(popup){
+    setPopup(popup);
+  }
+
+  function handleClosePopup(){
+    setPopup(null);
+  }
 
   const navigate = useNavigate();
   
@@ -60,7 +70,7 @@ function App() {
 
   return (
     <div className='page'>
-      <UserContext.Provider value={{user}}>
+      <UserContext.Provider value={{user, popup, handleClosePopup, setUser}}>
         <Header
         logged={logged}
         logout={logout}
@@ -68,7 +78,8 @@ function App() {
       <Routes>
         <Route path='/register' element={<Register handleRegister={handleRegister}/>} />
         <Route path='/login' element={<Login handleLogin={handleLogin}/>}/>
-        <Route path='/' element={<Main/>} />
+        <Route path='/' element={<Main 
+        onOpenPopup={handlePopup}/>} />
       </Routes>
       <Footer/>
       </UserContext.Provider>
