@@ -16,7 +16,7 @@ function Main({onOpenPopup}) {
             <section className='user'>
                 <div className='user__info'>
                     <p className='user__info_name'>{user.name}</p>
-                    <img className='user__info_edit' src={edit} alt='edit' onClick={() => {console.log('click detectado'), onOpenPopup(editUserPopup)}} />
+                    <img className='user__info_edit' src={edit} alt='edit' onClick={() => onOpenPopup(editUserPopup)} />
                 </div>
                 <p className='user__bio'>{user.bio}</p>
             </section>

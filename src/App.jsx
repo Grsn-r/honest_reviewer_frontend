@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/header/header.jsx'
 import Footer from './components/footer.jsx'
@@ -50,7 +50,6 @@ function App() {
           ])
           .then(([userData]) => {
             setUser(userData);
-            console.log(`datos de usuario: ${userData}`);
             setIsLogged(true);
             navigate('/');
           })
@@ -68,9 +67,24 @@ function App() {
     navigate('/login');
   }
 
+  const handleUpdateInfo = (data) => {
+    api.setUserData(data)
+    .then(newData => {
+      setUser(prev => ({...prev, ...data}));
+      handleClosePopup();
+    })
+    .catch(err => {
+      console.error(err);
+    })
+  }
+
   return (
     <div className='page'>
-      <UserContext.Provider value={{user, popup, handleClosePopup, setUser}}>
+      <UserContext.Provider value={{user,
+        popup, 
+        handleClosePopup, 
+        setUser,
+        handleUpdateInfo}}>
         <Header
         logged={logged}
         logout={logout}

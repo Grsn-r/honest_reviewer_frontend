@@ -3,7 +3,7 @@ import UserContext from "../../context/userContext"
 
 export default function EditUserInfo() {
 
-    const {user, setUser, handleClosePopup} = useContext(UserContext);
+    const {user, setUser, handleUpdateInfo} = useContext(UserContext);
 
     const [data, setData] = useState({name:'', bio:''})
 
@@ -16,8 +16,7 @@ export default function EditUserInfo() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setUser({name: data.name ? data.name : user.name, bio: data.bio ? data.bio : user.bio});
-        handleClosePopup();
+        handleUpdateInfo({name: data.name ? data.name : user.name, bio: data.bio ? data.bio : user.bio });
     }
 
     

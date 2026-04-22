@@ -22,6 +22,15 @@ class Api{
         })
         .then(this._checkResponse);
     }
+
+    setUserData(data) {
+        return fetch(`${this._baseURL}/users/me`, {
+            method: 'PATCH',
+            headers: this._headers,
+            body: JSON.stringify(data),
+        })
+        .then(this._checkResponse);
+    }
 }
 
 const api = new Api({
