@@ -25,6 +25,12 @@
     width: 35vw;
 }
 
+.login__button{
+    margin: 15px auto;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 .login__link{
     text-decoration: none;
     color: antiquewhite;

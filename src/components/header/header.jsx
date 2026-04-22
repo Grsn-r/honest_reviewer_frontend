@@ -1,5 +1,5 @@
 
-function Header() {
+function Header({logged, logout}) {
     return (
         <header className="header">
             <div className="header__text">
@@ -7,7 +7,7 @@ function Header() {
                 <p className='header__info_element'>No te vamos a regañar (tampoco pagar)</p>
             </div>
             <div className="header__sesion">
-                <p>estado de sesión</p>
+                {logged && (<button className="header__sesion_logout" onClick={logout}>Cerrar Sesión</button>)}
             </div>
         </header>
     )

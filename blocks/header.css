@@ -18,3 +18,7 @@
 .header__sesion{
     margin: auto 0 auto auto;
 }
+
+.header__sesion_logout{
+    cursor: pointer;
+}

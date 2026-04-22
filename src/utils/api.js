@@ -1,7 +1,7 @@
 class Api{
     constructor(options){
-        this._baseURL = options._baseURL;
-        this._headers = options._headers
+        this._baseURL = options.baseURL;
+        this._headers = options.headers
     }
 
     _checkResponse(res) {
@@ -10,4 +10,25 @@ class Api{
         }
         return Promise.reject(`Error: ${res.status}`)
     }
+
+    setAuthJwt(token) {
+        this._headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    getUserData() {
+        return fetch(`${this._baseURL}/users/me`, {
+            method: 'GET',
+            headers: this._headers,
+        })
+        .then(this._checkResponse);
+    }
 }
+
+const api = new Api({
+    baseURL: 'https://honestreviewerbackend-production.up.railway.app',
+    headers: {
+        "Content-Type" : "application/json",
+    }
+});
+
+export default api;

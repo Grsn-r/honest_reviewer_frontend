@@ -25,6 +25,12 @@
     width: 35vw;
 }
 
+.register__button{
+    margin: 15px auto;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 .register__link{
     text-decoration: none;
     color: antiquewhite;
