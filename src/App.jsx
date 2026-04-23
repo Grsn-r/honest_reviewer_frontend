@@ -9,6 +9,7 @@ import Login from './components/login.jsx';
 import * as auth from './utils/auth.js';
 import UserContext from './context/userContext.js';
 import api from './utils/api.js';
+import ProtectedRoute from './ProtectedRoute.jsx';
 
 
 function App() {
@@ -61,6 +62,26 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    const token = localStorage.getItem('jwt');
+    if (!token) {
+      setIsLogged(false);
+    }
+    api.setAuthJwt(token);
+    setIsLogged(true);
+    navigate('/');
+    Promise.all([
+      api.getUserData()
+    ])
+    .then(([response]) => {
+      setUser(response);
+    })
+    .catch(err => {
+      setIsLogged(false);
+      console.error(err);
+    })
+  },[]);
+
   const logout = () => {
     localStorage.removeItem('jwt');
     setIsLogged(false);
@@ -81,7 +102,8 @@ function App() {
   return (
     <div className='page'>
       <UserContext.Provider value={{user,
-        popup, 
+        popup,
+        logged,
         handleClosePopup, 
         setUser,
         handleUpdateInfo}}>
@@ -92,8 +114,12 @@ function App() {
       <Routes>
         <Route path='/register' element={<Register handleRegister={handleRegister}/>} />
         <Route path='/login' element={<Login handleLogin={handleLogin}/>}/>
-        <Route path='/' element={<Main 
-        onOpenPopup={handlePopup}/>} />
+        <Route path='/' element={
+          <ProtectedRoute>
+            <Main 
+              onOpenPopup={handlePopup}/>
+          </ProtectedRoute>
+          } />
       </Routes>
       <Footer/>
       </UserContext.Provider>

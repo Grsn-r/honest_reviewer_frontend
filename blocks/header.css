@@ -1,8 +1,8 @@
 .header{
     display: flex;
     flex-direction: row;
-    background-color: #2a3132;
-    border: solid 2px white;
+    background-color: #71050A;
+    border: none;
     height: 15vh;
     border-radius: 20px;
     color: antiquewhite;
@@ -21,4 +21,15 @@
 
 .header__sesion_logout{
     cursor: pointer;
+    border-radius: 5px;
+    background-color: #ff9800;
+    color:antiquewhite;
+    padding: 8px 4px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+}
+
+.header__sesion_logout:hover{
+    background: #e68a00;
 }
