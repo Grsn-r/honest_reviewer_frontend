@@ -99,6 +99,17 @@ function App() {
     })
   }
 
+  const handlesSetPassword = (data) => {
+    api.setPassword(data)
+    .then(modified => {
+      if (modified) {
+        handleClosePopup();
+      }
+    }).catch(err => {
+      console.error(err);
+    })
+  }
+
   return (
     <div className='page'>
       <UserContext.Provider value={{user,
@@ -106,7 +117,9 @@ function App() {
         logged,
         handleClosePopup, 
         setUser,
-        handleUpdateInfo}}>
+        handleUpdateInfo,
+        handlesSetPassword,
+        }}>
         <Header
         logged={logged}
         logout={logout}

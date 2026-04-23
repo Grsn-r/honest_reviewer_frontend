@@ -24,7 +24,16 @@ class Api{
     }
 
     setUserData(data) {
-        return fetch(`${this._baseURL}/users/me`, {
+        return fetch(`${this._baseURL}/users/me/profile`, {
+            method: 'PATCH',
+            headers: this._headers,
+            body: JSON.stringify(data),
+        })
+        .then(this._checkResponse);
+    }
+
+    setPassword(data) {
+        return fetch(`${this._baseURL}/users/me/password`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify(data),

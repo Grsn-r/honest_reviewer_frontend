@@ -3,9 +3,15 @@ import UserContext from "../../context/userContext"
 
 export default function EditUserInfo() {
 
-    const {user, setUser, handleUpdateInfo} = useContext(UserContext);
+    const {user, handleUpdateInfo} = useContext(UserContext);
 
     const [data, setData] = useState({name:'', bio:''})
+
+    let buttonClass = 'popup__form_button';
+
+    if (data.name.trim() === '' && data.bio.trim() === '') {
+        buttonClass += ' popup__form_button-disabled'
+    } 
 
     const handleData = (e) => {
     const {name, value} = e.target;
@@ -19,12 +25,11 @@ export default function EditUserInfo() {
         handleUpdateInfo({name: data.name ? data.name : user.name, bio: data.bio ? data.bio : user.bio });
     }
 
-    
     return (
         <form className="popup__form" onSubmit={handleSubmit}>
-            <input className="popup__form_input" type="text" name="name"  onChange={handleData}/>
-            <input className="popup__form_input" type="text" name="bio" onChange={handleData} />
-            <button className="popup__form_button" >Guardar</button>
+            <input className="popup__form_input" type="text" name="name" placeholder="Nuevo nombre o alias" onChange={handleData}/>
+            <input className="popup__form_input" type="text" name="bio" placeholder="escribe algo sobre tí" onChange={handleData} />
+            <button className={buttonClass} >Guardar</button>
         </form>
     )
 }
