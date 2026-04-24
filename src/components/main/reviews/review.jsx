@@ -2,7 +2,7 @@ import image from '../../../images/review_sample.jpg';
 import dlt from '../../../images/delete.svg';
 
 function Review(props) {
-    const {onReviewClick} = props;
+    const {onReviewClick, review} = props;
     const {title, text, picture} = review;
     return (
         <div className="review">

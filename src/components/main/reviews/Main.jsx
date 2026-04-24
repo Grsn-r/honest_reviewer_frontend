@@ -27,13 +27,15 @@ function Main({onOpenPopup}) {
                 <button className='user__review-button' onClick={()=> onOpenPopup(postReview)} ></button>
                 <p className='user__bio'>{user.bio}</p>
             </section>
-            <section className="reviews">
-                {reviews.map(rv => {
+            <section>
+                <ul className="reviews">
+                     {/* {reviews.map((review) => (
                     <Review 
-                    key={rv._id}
-                    review={rv}
+                    key={review._id}
+                    review={review}
                     />
-                })}
+                    ))} */}
+                </ul>
             </section>
             <FullReview/>
             {popup && (<Popup

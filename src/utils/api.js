@@ -45,7 +45,7 @@ class Api{
         const formData = new FormData();
         formData.append('title', data.title);
         formData.append('text', data.text);
-        formData.append('picture', data.picture);
+        formData.append('image', data.picture);
         return fetch(`${this._baseURL}`, {
             method: 'POST',
             headers: {

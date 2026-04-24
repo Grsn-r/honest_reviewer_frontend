@@ -72,10 +72,12 @@ function App() {
     setIsLogged(true);
     navigate('/');
     Promise.all([
+      api.getReviews(),
       api.getUserData()
     ])
-    .then(([response]) => {
-      setUser(response);
+    .then(([userData, rvData]) => {
+      setUser(userData);
+      setReviews(rvData);
     })
     .catch(err => {
       setIsLogged(false);
