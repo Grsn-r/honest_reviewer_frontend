@@ -17,7 +17,7 @@ function App() {
   const [logged, setIsLogged] = useState(false);
   const [user, setUser] = useState({});
   const [popup, setPopup] = useState(null);
-  const [reviews, setReviews] = useState([])
+  const [reviews, setReviews] = useState([]);
 
   function handlePopup(popup){
     setPopup(popup);
@@ -75,7 +75,7 @@ function App() {
       api.getReviews(),
       api.getUserData()
     ])
-    .then(([userData, rvData]) => {
+    .then(([rvData, userData]) => {
       setUser(userData);
       setReviews(rvData);
     })
@@ -114,18 +114,16 @@ function App() {
   }
 
   const handlePostReview = (data) => {
+    console.log('Token en localStorage:', localStorage.getItem('jwt'));
     api.setReview(data)
     .then(review => {
-      if (review) {
-        setReviews([review, ...reviews]);
+      api.getReviews().then(rvs => {
+        setReviews(rvs); //obtener las revies desde la DB 
         handleClosePopup();
-      }
+      })
     })
     .catch(err => {
-      return err.json().then(error => {
-        alert(error.mesage)
-        throw error;
-      })
+      return console.error(err.message);
     })
   }
 

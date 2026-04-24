@@ -29,12 +29,13 @@ function Main({onOpenPopup}) {
             </section>
             <section>
                 <ul className="reviews">
-                     {/* {reviews.map((review) => (
-                    <Review 
-                    key={review._id}
-                    review={review}
-                    />
-                    ))} */}
+                    {reviews.map(rv => (
+                        <Review 
+                        key={rv._id}
+                        review={rv} 
+                        />
+                    )
+                    )}
                 </ul>
             </section>
             <FullReview/>
