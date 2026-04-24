@@ -17,6 +17,7 @@ function App() {
   const [logged, setIsLogged] = useState(false);
   const [user, setUser] = useState({});
   const [popup, setPopup] = useState(null);
+  const [reviews, setReviews] = useState([])
 
   function handlePopup(popup){
     setPopup(popup);
@@ -110,11 +111,30 @@ function App() {
     })
   }
 
+  const handlePostReview = (data) => {
+    api.setReview(data)
+    .then(review => {
+      if (review) {
+        setReviews([review, ...reviews]);
+        handleClosePopup();
+      }
+    })
+    .catch(err => {
+      return err.json().then(error => {
+        alert(error.mesage)
+        throw error;
+      })
+    })
+  }
+
   return (
     <div className='page'>
-      <UserContext.Provider value={{user,
+      <UserContext.Provider value={{
+        user,
+        reviews,
         popup,
         logged,
+        handlePostReview,
         handleClosePopup, 
         setUser,
         handleUpdateInfo,

@@ -1,13 +1,12 @@
 .user{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 4fr 2fr 4fr;
     background-color: #4b0306;
     border: none;
     height: 10vh;
     border-radius: 20px;
     color: antiquewhite;
     font-size: 22px;
-    justify-content: space-around;
     padding: 0 10px;
 }
 
@@ -26,4 +25,20 @@
     height: 20px;
     cursor: pointer;
     margin: 0 8px;
+}
+
+.user__review-button{
+    background-image: url(../src/images/post.svg);
+    background-size: contain;
+    background-color: #ff9800;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.user__review-button:hover{
+    background-color: #e68a00;
+    cursor: pointer;
 }

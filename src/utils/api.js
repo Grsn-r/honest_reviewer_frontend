@@ -40,6 +40,29 @@ class Api{
         })
         .then(this._checkResponse);
     }
+
+    setReview(data) {
+        const formData = new FormData();
+        formData.append('title', data.title);
+        formData.append('text', data.text);
+        formData.append('picture', data.picture);
+        return fetch(`${this._baseURL}`, {
+            method: 'POST',
+            headers: {
+                Authorization: this._headers.Authorization,
+            },
+            body: formData
+        })
+        .then(this._checkResponse);
+    }
+
+    getReviews() {
+        return fetch(`${this._baseURL}`, {
+            method: 'GET',
+            headers: this._headers,
+        })
+        .then(this._checkResponse);
+    }
 }
 
 const api = new Api({

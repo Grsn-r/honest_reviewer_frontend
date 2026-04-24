@@ -28,7 +28,7 @@ export default function SetPasswordPopup() {
     return (
         <form className="popup__form" onSubmit={handleSubmit} >
             <input className="popup__form_input" type="password" name="password" placeholder="contraseña actual" onChange={handleData} />
-            <input className="popup__form_input" type="password" name="newPassword" placeholder="contraseña nueva" onChange={handleData} />
+            <input className="popup__form_input" type="password" name="newPassword" placeholder="contraseña nueva" minLength={8} onChange={handleData} />
             <button className={buttonClass} >cambiar contraseña</button>
         </form>
     )
