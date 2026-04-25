@@ -114,11 +114,10 @@ function App() {
   }
 
   const handlePostReview = (data) => {
-    console.log('Token en localStorage:', localStorage.getItem('jwt'));
     api.setReview(data)
     .then(review => {
       api.getReviews().then(rvs => {
-        setReviews(rvs); //obtener las revies desde la DB 
+        setReviews(rvs); 
         handleClosePopup();
       })
     })

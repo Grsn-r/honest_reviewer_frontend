@@ -42,8 +42,6 @@ class Api{
     }
 
     setReview(data) {
-        console.log('Token de autorización:', this._headers.Authorization); 
-        console.log('Datos recibidos:', data);
         const formData = new FormData();
         formData.append('title', data.title);
         formData.append('text', data.text);
