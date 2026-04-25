@@ -1,0 +1,39 @@
+.register{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(118, 54, 38);
+    margin: auto;
+    width: 40vw;
+    height: 50vh;
+    border-radius: 20px;
+    color: antiquewhite;
+}
+
+.register__title{
+    color: antiquewhite;
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+.register__form{
+    display: flex;
+    flex-direction: column;
+}
+
+.register__form_input{
+    margin: 20px auto 0;
+    width: 35vw;
+}
+
+.register__button{
+    margin: 15px auto;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.register__link{
+    text-decoration: none;
+    color: antiquewhite;
+    text-align: center;
+    margin-top: 20px;
+}

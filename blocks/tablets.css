@@ -1,0 +1,14 @@
+@media screen and (max-width: 820px) {
+  .page{
+    margin: 0 25px;
+  }
+
+  .popup__content{
+    width: 70vw;
+  }
+
+  .popup__form{
+    width: 100%;
+  }
+
+}

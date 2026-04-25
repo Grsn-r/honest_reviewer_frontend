@@ -1,120 +1,184 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useContext, useEffect, useState } from 'react'
 import './App.css'
+import Header from './components/header/header.jsx'
+import Footer from './components/footer.jsx'
+import Main from './components/main/reviews/Main.jsx'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import Register from './components/register.jsx';
+import Login from './components/login.jsx';
+import * as auth from './utils/auth.js';
+import UserContext from './context/userContext.js';
+import api from './utils/api.js';
+import ProtectedRoute from './ProtectedRoute.jsx';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [logged, setIsLogged] = useState(false);
+  const [user, setUser] = useState({});
+  const [popup, setPopup] = useState(null);
+  const [reviews, setReviews] = useState([]);
+
+  function handlePopup(popup){
+    setPopup(popup);
+  }
+
+  function handleClosePopup(){
+    setPopup(null);
+  }
+
+  const navigate = useNavigate();
+  
+  const handleRegister = ({name, email, password}) => {
+    auth.register(name, email, password)
+    .then(data => {
+      if (data) {
+        setTimeout(() => {navigate('login')}, 2000);
+      }
+    })
+    .catch(err => {
+      return console.error(`Error: ${err}`);
+    })
+  }
+
+  const handleLogin = ({email, password}) => {
+    if (email && password) {
+      auth.login(email, password)
+      .then(data => {
+        if (data && data.token) {
+          api.setAuthJwt(data.token);
+          Promise.all([
+            api.getUserData(),
+            api.getReviews()
+          ])
+          .then(([userData, reviewsData]) => {
+            setUser(userData);
+            setReviews(reviewsData);
+            setIsLogged(true);
+            navigate('/');
+          })
+        }
+      })
+      .catch(error => {
+        return console.error(error);
+      })
+    }
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('jwt');
+    if (!token) {
+      setIsLogged(false);
+    }
+    api.setAuthJwt(token);
+    setIsLogged(true);
+    navigate('/');
+    Promise.all([
+      api.getReviews(),
+      api.getUserData()
+    ])
+    .then(([rvData, userData]) => {
+      setUser(userData);
+      setReviews(rvData);
+    })
+    .catch(err => {
+      setIsLogged(false);
+      console.error(err);
+    })
+  },[]);
+
+  const logout = () => {
+    localStorage.removeItem('jwt');
+    setIsLogged(false);
+    navigate('/login');
+  }
+
+  const handleUpdateInfo = (data) => {
+    api.setUserData(data)
+    .then(newData => {
+      setUser(prev => ({...prev, ...data}));
+      handleClosePopup();
+    })
+    .catch(err => {
+      console.error(err);
+    })
+  }
+
+  const handlesSetPassword = (data) => {
+    api.setPassword(data)
+    .then(modified => {
+      if (modified) {
+        handleClosePopup();
+      }
+    }).catch(err => {
+      console.error(err);
+    })
+  }
+
+  const handlePostReview = (data) => {
+    api.setReview(data)
+    .then(review => {
+      api.getReviews().then(rvs => {
+        setReviews(rvs); 
+        handleClosePopup();
+      })
+    })
+    .catch(err => {
+      return console.error(err);
+    })
+  }
+
+  const handleReviewDelete = (rv) => {
+    api.eraseReview(rv._id).then(() => {
+      setReviews(revs => revs.filter(currentRv => currentRv._id !== rv._id));
+    }).catch(err => console.error(err));
+  }
+
+
+  const handleComment = (rv, text) => {
+    api.setComment(rv._id, text).then((newCmnt) => {
+      setReviews(reviews.map(review => {
+        if (rv._id === newCmnt._id) {
+          return newCmnt 
+        } else { return review } //devolver la review intacta
+      }))
+    }).then(err => console.err(err));
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+    <div className='page'>
+      <UserContext.Provider value={{
+        user,
+        reviews,
+        popup,
+        comments,
+        logged,
+        handleComment,
+        handlePopup,
+        handlePostReview,
+        handleClosePopup, 
+        setUser,
+        handleUpdateInfo,
+        handlesSetPassword,
+        handleReviewDelete,
+        }}>
+        <Header
+        logged={logged}
+        logout={logout}
+      />
+      <Routes>
+        <Route path='/register' element={<Register handleRegister={handleRegister}/>} />
+        <Route path='/login' element={<Login handleLogin={handleLogin}/>}/>
+        <Route path='/' element={
+          <ProtectedRoute>
+            <Main 
+              onOpenPopup={handlePopup}/>
+          </ProtectedRoute>
+          } />
+      </Routes>
+      <Footer/>
+      </UserContext.Provider>
+    </div>
   )
 }
 

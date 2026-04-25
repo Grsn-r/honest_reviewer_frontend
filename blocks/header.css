@@ -1,0 +1,36 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color: #71050A;
+    border: none;
+    height: 15vh;
+    border-radius: 20px;
+    color: antiquewhite;
+    font-size: 22px;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.header__text{
+    margin: 0;
+    margin-right: 15px;
+}
+
+.header__sesion{
+    margin: auto 0 auto auto;
+}
+
+.header__sesion_logout{
+    border-radius: 5px;
+    background-color: #ff9800;
+    color:antiquewhite;
+    padding: 8px 4px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+}
+
+.header__sesion_logout:hover{
+    background: #e68a00;
+    cursor: pointer;
+}

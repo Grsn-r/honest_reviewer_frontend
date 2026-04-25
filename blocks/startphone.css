@@ -1,0 +1,36 @@
+@media screen and (max-width: 768px) {
+  .page{
+    margin: 0 15px;
+  }
+
+  .header{
+    font-size: 18px;
+  }
+
+  .user{
+    font-size: 18px;
+  }
+
+  .reviews{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .popup__content{
+    width: 75vw;
+  }
+
+  .popup__form{
+    width: 100%;
+  }
+
+  .full-review{
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+    .reviews{
+        grid-template-columns: 1fr;
+    }
+}
