@@ -126,6 +126,12 @@ function App() {
     })
   }
 
+  const handleReviewDelete = (rv) => {
+    api.eraseReview(rv._id).then(() => {
+      setReviews(revs => revs.filter(currentRv => currentRv._id !== rv._id));
+    }).catch(err => console.error(err));
+  }
+
   return (
     <div className='page'>
       <UserContext.Provider value={{
@@ -138,6 +144,7 @@ function App() {
         setUser,
         handleUpdateInfo,
         handlesSetPassword,
+        handleReviewDelete,
         }}>
         <Header
         logged={logged}

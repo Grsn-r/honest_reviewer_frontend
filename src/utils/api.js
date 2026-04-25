@@ -63,6 +63,14 @@ class Api{
         })
         .then(this._checkResponse);
     }
+
+    eraseReview(reviewId) {
+        return fetch(`${this._baseURL}/${reviewId}`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+        .then(this._checkResponse);
+    }
 }
 
 const api = new Api({
