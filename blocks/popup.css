@@ -13,7 +13,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgb(219, 214, 183);
+    background-color: rgba(219, 214, 183, 0.6);
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -27,6 +27,10 @@
 
 .popup__title{
     text-align: center;
+    margin: 18px auto;
+    background-color: #743726;
+    border-radius: 4px;
+    padding: 4px;
 }
 
 .popup__form_input{

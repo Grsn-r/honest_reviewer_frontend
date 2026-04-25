@@ -1,4 +1,4 @@
-import FullReview from './full-review.jsx';
+
 import Review from './Review.jsx'
 import {Children, useContext} from 'react';
 import UserContext from '../../../context/userContext.js';
@@ -38,7 +38,6 @@ function Main({onOpenPopup}) {
                     )}
                 </ul>
             </section>
-            <FullReview/>
             {popup && (<Popup
             onClose={handleClosePopup}
             title={popup.title}>

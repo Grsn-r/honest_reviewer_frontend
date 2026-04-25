@@ -48,10 +48,12 @@ function App() {
         if (data && data.token) {
           api.setAuthJwt(data.token);
           Promise.all([
-            api.getUserData()
+            api.getUserData(),
+            api.getReviews()
           ])
-          .then(([userData]) => {
+          .then(([userData, reviewsData]) => {
             setUser(userData);
+            setReviews(reviewsData);
             setIsLogged(true);
             navigate('/');
           })
@@ -139,6 +141,7 @@ function App() {
         reviews,
         popup,
         logged,
+        handlePopup,
         handlePostReview,
         handleClosePopup, 
         setUser,

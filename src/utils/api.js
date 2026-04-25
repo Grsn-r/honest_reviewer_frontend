@@ -72,6 +72,14 @@ class Api{
         })
         .then(this._checkResponse);
     }
+
+    setComment(reviewId) {
+        return fetch(`${this._baseURL}/${reviewId}/comments`, {
+            method: 'POST',
+            headers: this._headers,
+        })
+        .then(this._checkResponse);
+    }
 }
 
 const api = new Api({
