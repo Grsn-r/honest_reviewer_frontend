@@ -9,7 +9,7 @@ function Review(props) {
     const {title, text, pictureUrl} = review;
     return (
         <div className="review">
-            <img className='review__delete' src={dlt} alt='borrar reseña'onClick={handleReviewDelete} />
+            <img className='review__delete' src={dlt} alt='borrar reseña' onClick={() => handleReviewDelete(review)} />
             <p className="review__title">{title}</p>
             <img className="review__image" src={pictureUrl} alt='review image' />
             <div className='review__footer'>

@@ -65,7 +65,8 @@ class Api{
     }
 
     eraseReview(reviewId) {
-        return fetch(`${this._baseURL}/${reviewId}`, {
+        const url = `${this._baseURL}/${reviewId}`;
+        return fetch(url, {
             method: 'DELETE',
             headers: this._headers,
         })
