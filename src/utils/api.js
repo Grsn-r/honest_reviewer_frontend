@@ -73,10 +73,12 @@ class Api{
         .then(this._checkResponse);
     }
 
-    setComment(reviewId) {
+    setComment(reviewId, text) {
+
         return fetch(`${this._baseURL}/${reviewId}/comments`, {
             method: 'POST',
             headers: this._headers,
+            body: JSON.stringify({text}),
         })
         .then(this._checkResponse);
     }

@@ -1,8 +1,11 @@
+import UserContext from '../../../context/userContext';
 import back from '../../../images/back.svg'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 
 export default function FullReview({review}) {
+    const {handlecomment} = useContext(UserContext)
+
     const handlesubmit = (e) => {
         e.preventDefault();
     }

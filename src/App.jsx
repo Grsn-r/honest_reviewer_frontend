@@ -124,7 +124,7 @@ function App() {
       })
     })
     .catch(err => {
-      return console.error(err.message);
+      return console.error(err);
     })
   }
 
@@ -134,13 +134,26 @@ function App() {
     }).catch(err => console.error(err));
   }
 
+
+  const handleComment = (rv, text) => {
+    api.setComment(rv._id, text).then((newCmnt) => {
+      setReviews(reviews.map(review => {
+        if (rv._id === newCmnt._id) {
+          return newCmnt 
+        } else { return review } //devolver la review intacta
+      }))
+    }).then(err => console.err(err));
+  }
+
   return (
     <div className='page'>
       <UserContext.Provider value={{
         user,
         reviews,
         popup,
+        comments,
         logged,
+        handleComment,
         handlePopup,
         handlePostReview,
         handleClosePopup, 
