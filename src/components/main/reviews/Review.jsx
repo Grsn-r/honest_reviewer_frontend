@@ -1,8 +1,7 @@
-import image from '../../../images/review_sample.jpg';
 import dlt from '../../../images/delete.svg';
 import { useContext } from 'react';
 import UserContext from '../../../context/userContext';
-import FullReview from './full-review';
+import FullReview from './Full-review';
 
 function Review(props) {
     const {handleReviewDelete, popup, handlePopup} = useContext(UserContext);
