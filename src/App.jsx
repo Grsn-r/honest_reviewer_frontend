@@ -134,9 +134,7 @@ function App() {
 
   const handleReviewDelete = (rv) => {
     api.eraseReview(rv._id).then((res) => {
-      if (res.ok) {
         return setReviews(revs => revs.filter(currentRv => currentRv._id !== rv._id))
-      } return Promise.reject(res)
     }).catch(err => {
       return alert('no puedes borrar post ajenos')
     });
@@ -144,13 +142,20 @@ function App() {
 
 
   const handleComment = (rv, text) => {
-    api.setComment(rv._id, text).then((newCmnt) => {
+    api.setComment(rv._id, text).then(newCmnt => {
       setReviews(prev => prev.map(review => {
         if (rv._id === newCmnt._id) {
           return { ...review, comments: newCmnt.comments};
         } else { return review }
       }))
     }).catch(err => console.error(err));
+  }
+
+  const handleCommentDelete = (reviewId, commentId) => {
+    api.removeComment(reviewId, commentId).then(updated => {setReviews(
+      prev => prev.map(review => review._id === updated._id ? {...review, comments: updated.comments} : review )
+    )})
+    .then(err => {return alert(err)})
   }
 
   return (
@@ -161,6 +166,7 @@ function App() {
         popup,
         logged,
         handleComment,
+        handleCommentDelete,
         handlePopup,
         handlePostReview,
         handleClosePopup, 

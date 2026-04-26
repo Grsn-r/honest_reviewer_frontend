@@ -6,7 +6,7 @@ import cmntEraser from '../../../images/eraseCmnt.svg';
 
 export default function FullReview({review}) {
 
-    const {handleComment} = useContext(UserContext);
+    const {handleComment, handleCommentDelete } = useContext(UserContext);
     const [data, setData] = useState('')
     
     const handleSubmit = (e) => {
@@ -26,7 +26,7 @@ export default function FullReview({review}) {
             <div className="full-review__comments">
                 {review.comments.map(cmnt => (
                     <div className='full-review__comments_comment' >
-                        <img className='full-review__comments_comment_eraser' src={cmntEraser} alt='borrar' />
+                        <img className='full-review__comments_comment_eraser' src={cmntEraser} alt='borrar' onClick={() => handleCommentDelete(review._id, cmnt._id)} />
                         <p className='full-review__comments_comment_text' >{cmnt.author.name} dice: {cmnt.text}</p>
                     </div>
                 ))}

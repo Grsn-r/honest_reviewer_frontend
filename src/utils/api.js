@@ -82,6 +82,14 @@ class Api{
         })
         .then(this._checkResponse);
     }
+
+    removeComment(reviewId, commentId) {
+        return fetch(`${this._baseURL}/${reviewId}/comments/${commentId}`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+        .then(this._checkResponse);
+    }
 }
 
 const api = new Api({
