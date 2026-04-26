@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
 import './App.css'
-import Header from './components/header/Header'
-import Footer from './components/Footer'
-import Main from './components/main/reviews/Main'
+import Header from './components/header/Header';
+import Footer from './components/Footer';
+import Main from './components/main/Main';
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import Register from './components/Register';
 import Login from './components/Login';
