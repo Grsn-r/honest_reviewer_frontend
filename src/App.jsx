@@ -151,7 +151,6 @@ function App() {
         user,
         reviews,
         popup,
-        comments,
         logged,
         handleComment,
         handlePopup,
