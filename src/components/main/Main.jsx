@@ -1,5 +1,5 @@
 
-import Review from './Review';
+import Review from './reviews/Review';
 import {Children, useContext} from 'react';
 import UserContext from '../../../context/userContext';
 import edit from '../../../images/edit.svg';
