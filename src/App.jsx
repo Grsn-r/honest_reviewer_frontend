@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from 'react'
 import './App.css'
-import Header from './components/header/header.jsx'
-import Footer from './components/footer.jsx'
-import Main from './components/main/reviews/Main.jsx'
+import Header from './components/header/Header'
+import Footer from './components/Footer'
+import Main from './components/main/reviews/Main'
 import { Routes, Route, useNavigate } from 'react-router-dom'
-import Register from './components/register.jsx';
-import Login from './components/login.jsx';
+import Register from './components/Register';
+import Login from './components/Login';
 import * as auth from './utils/auth.js';
-import UserContext from './context/userContext.js';
-import api from './utils/api.js';
-import ProtectedRoute from './ProtectedRoute.jsx';
+import UserContext from './context/userContext';
+import api from './utils/api';
+import ProtectedRoute from './ProtectedRoute';
 
 
 function App() {
@@ -151,7 +151,6 @@ function App() {
         user,
         reviews,
         popup,
-        comments,
         logged,
         handleComment,
         handlePopup,
