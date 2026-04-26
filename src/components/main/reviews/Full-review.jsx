@@ -15,7 +15,7 @@ export default function FullReview({review}) {
             {review.text}
             </p>
             <form className="full-review__form" onSubmit={handlesubmit} >
-                <input className="full-review__form_input" type='text'placeholder="Comenta" />
+                <input className="full-review__form_input" type='text'placeholder="Esta función está en desarrollo" />
                 <button className="full-review__form_submit">Comentar</button>
             </form>
             <div className="full-review__comments"></div>
