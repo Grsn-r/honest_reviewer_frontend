@@ -4,7 +4,7 @@ import UserContext from '../../../context/userContext';
 import FullReview from './Full-review';
 
 function Review(props) {
-    const {handleReviewDelete, popup, handlePopup} = useContext(UserContext);
+    const {handleReviewDelete, handlePopup} = useContext(UserContext);
     const {review} = props;
     const {title, text, pictureUrl, comments} = review;
 

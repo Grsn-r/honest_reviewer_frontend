@@ -39,3 +39,16 @@
     font-size: 20px;
     width: 75%;
 }
+
+.full-review__coments{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+}
+
+.full-review__coments_coment{
+    background-color: rgb(48, 165, 165);
+    margin: 5px 20px;
+    border-radius: 3px;
+}

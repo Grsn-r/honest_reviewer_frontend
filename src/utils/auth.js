@@ -12,6 +12,7 @@ export const register = (name, email, password) => {
         if (res.ok) {
             return res.json()
         }
+        return Promise.reject(res);
     })
     .catch(err => {
         return err.json().then(error => {

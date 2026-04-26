@@ -37,7 +37,7 @@ function App() {
       }
     })
     .catch(err => {
-      return console.error(`Error: ${err}`);
+      return console.error(err);
     })
   }
 
@@ -140,9 +140,9 @@ function App() {
       setReviews(reviews.map(review => {
         if (rv._id === newCmnt._id) {
           return newCmnt 
-        } else { return review } //devolver la review intacta
+        } else { return review }
       }))
-    }).then(err => console.err(err));
+    }).catch(err => console.err(err));
   }
 
   return (
