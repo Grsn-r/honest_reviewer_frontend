@@ -13,7 +13,7 @@ function Main({onOpenPopup}) {
     const {user, popup, handleClosePopup, reviews} = useContext(UserContext);
     
     const editUserPopup = {title:'Modifica tus datos', children:<EditUserInfo/>}
-    const setPasswordPopup = {title: 'Cabia tu contraseña', children: <SetPasswordPopup/>}
+    const setPasswordPopup = {title: 'Cambia tu contraseña', children: <SetPasswordPopup/>}
     const postReview = {title: 'Haz una reseña', children: <PostReviewPopup/>}
 
     return (

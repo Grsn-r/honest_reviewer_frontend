@@ -31,6 +31,7 @@
     background-color: #743726;
     border-radius: 4px;
     padding: 4px;
+    max-width: 90%;
 }
 
 .popup__form_input{

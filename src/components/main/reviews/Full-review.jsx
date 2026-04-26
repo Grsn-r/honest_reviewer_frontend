@@ -1,32 +1,34 @@
 import UserContext from '../../../context/userContext';
 import back from '../../../images/back.svg'
-import { useContext, useState } from 'react'
+import { useState, useContext } from 'react';
+import cmntEraser from '../../../images/eraseCmnt.svg';
 
 
 export default function FullReview({review}) {
-    const {handleComment} = useContext(UserContext)
+
+    const {handleComment} = useContext(UserContext);
     const [data, setData] = useState('')
-
-    const handleData = (e) => {
-        setData(e.target.value);
-    }
-
-    const handlesubmit = (e) => {
+    
+    const handleSubmit = (e) => {
         e.preventDefault();
         handleComment(review, data);
     }
+
     return (
-        <div className="full-review">
+        <div className="full-review" >
             <p className="full-review__text">
             {review.text}
             </p>
-            <form className="full-review__form" onSubmit={handlesubmit} >
-                <input className="full-review__form_input" type='text'placeholder="comenta" onChange={handleData} />
+            <form className="full-review__form" onSubmit={handleSubmit} >
+                <input className="full-review__form_input" type='text'placeholder="comenta" onChange={(e) => setData(e.target.value)} />
                 <button className="full-review__form_submit">Comentar</button>
             </form>
             <div className="full-review__comments">
                 {review.comments.map(cmnt => (
-                    <p className='full-review__coments_coment'>{cmnt.text}</p>
+                    <div className='full-review__comments_comment' >
+                        <img className='full-review__comments_comment_eraser' src={cmntEraser} alt='borrar' />
+                        <p className='full-review__comments_comment_text' >{cmnt.author.name} dice: {cmnt.text}</p>
+                    </div>
                 ))}
             </div>
         </div>

@@ -1,16 +1,17 @@
 import dlt from '../../../images/delete.svg';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import UserContext from '../../../context/userContext';
-import FullReview from './Full-review';
 
 function Review(props) {
+    
     const {handleReviewDelete, handlePopup} = useContext(UserContext);
+   
     const {review} = props;
+
     const {title, text, pictureUrl, comments} = review;
 
     const getFullReview = () => {
-        const fullReview = {title: title, children: <FullReview review={review} /> };
-        handlePopup(fullReview);
+        handlePopup({reviewId: review._id});
     }
 
     return (

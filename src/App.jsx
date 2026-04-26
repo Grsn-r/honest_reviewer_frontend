@@ -10,6 +10,8 @@ import * as auth from './utils/auth.js';
 import UserContext from './context/userContext';
 import api from './utils/api';
 import ProtectedRoute from './ProtectedRoute';
+import FullReview from './components/main/reviews/Full-review'
+import Popup from './components/popups/Popup'
 
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
   const [user, setUser] = useState({});
   const [popup, setPopup] = useState(null);
   const [reviews, setReviews] = useState([]);
+
+  const review = popup?.reviewId ? reviews.find(r => r._id === popup.reviewId) : null ;
 
   function handlePopup(popup){
     setPopup(popup);
@@ -129,20 +133,24 @@ function App() {
   }
 
   const handleReviewDelete = (rv) => {
-    api.eraseReview(rv._id).then(() => {
-      setReviews(revs => revs.filter(currentRv => currentRv._id !== rv._id));
-    }).catch(err => console.error(err));
+    api.eraseReview(rv._id).then((res) => {
+      if (res.ok) {
+        return setReviews(revs => revs.filter(currentRv => currentRv._id !== rv._id))
+      } return Promise.reject(res)
+    }).catch(err => {
+      return alert('no puedes borrar post ajenos')
+    });
   }
 
 
   const handleComment = (rv, text) => {
     api.setComment(rv._id, text).then((newCmnt) => {
-      setReviews(reviews.map(review => {
+      setReviews(prev => prev.map(review => {
         if (rv._id === newCmnt._id) {
-          return newCmnt 
+          return { ...review, comments: newCmnt.comments};
         } else { return review }
       }))
-    }).catch(err => console.err(err));
+    }).catch(err => console.error(err));
   }
 
   return (
@@ -172,6 +180,9 @@ function App() {
           <ProtectedRoute>
             <Main 
               onOpenPopup={handlePopup}/>
+            {popup?.reviewId &&  <Popup title={review.title} onClose ={handleClosePopup} >
+              <FullReview review={review}/>
+              </Popup>}
           </ProtectedRoute>
           } />
       </Routes>
