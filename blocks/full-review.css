@@ -11,7 +11,7 @@
     background-color: #90afc5;
     border-radius: 5px;
     margin: 20px;
-    font-size: 20px;
+    padding: 4px;
 }
 
 .full-review__form{
@@ -50,9 +50,10 @@
 .full-review__comments_comment{
     display: flex;
     flex-direction: row-reverse;
-    background-color: rgb(48, 165, 165);
+    background-color: rgb(183, 215, 215);
     margin: 3px 20px;
     border-radius: 3px;
+    border: none;
     padding: 3px;
 }
 
