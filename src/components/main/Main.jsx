@@ -3,7 +3,7 @@ import Review from './reviews/Review';
 import {Children, useContext} from 'react';
 import UserContext from '../../context/userContext';
 import edit from '../../images/edit.svg';
-import setPw from '../../images/setPw.svg';
+import setPw from '../../images/gear.svg';
 import Popup from '../popups/Popup';
 import EditUserInfo from '../popups/EditUserInfo';
 import SetPasswordPopup from '../popups/SetPasswordPopup';
