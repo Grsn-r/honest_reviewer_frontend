@@ -3,7 +3,7 @@
     flex-direction: row;
     background-color: #71050A;
     border: none;
-    height: 15vh;
+    height: 10vh;
     border-radius: 20px;
     color: antiquewhite;
     font-size: 22px;
@@ -12,8 +12,17 @@
 }
 
 .header__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 0;
     margin-right: 15px;
+}
+
+.header__info_element{
+    font-family: 'Innovative-web', sans-serif;
+    font-size: 30px;
+    color: #e8e537;
 }
 
 .header__sesion{

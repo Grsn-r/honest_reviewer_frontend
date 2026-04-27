@@ -155,7 +155,26 @@ function App() {
     api.removeComment(reviewId, commentId).then(updated => {setReviews(
       prev => prev.map(review => review._id === updated._id ? {...review, comments: updated.comments} : review )
     )})
-    .then(err => {return alert(err)})
+    .then(err => {
+      console.log(err)
+    })
+  }
+
+  const handleLike = (reviewId) => {
+    api.likeReview(reviewId)
+    .then(liked => {
+      setReviews(prev => prev.map(rv => rv._id === liked._id ? {...rv, likes: liked.likes, dislikes: liked.dislikes} : rv))
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
+  const handleDislike = (reviewId) => {
+    api.dislikeReview(reviewId)
+    .then(disliked => {
+      setReviews(prev => prev.map(rv => rv._id === disliked._id ? {...rv, likes: disliked.likes, dislikes: disliked.dislikes} : rv))
+    })
   }
 
   return (
@@ -165,6 +184,8 @@ function App() {
         reviews,
         popup,
         logged,
+        handleDislike,
+        handleLike,
         handleComment,
         handleCommentDelete,
         handlePopup,

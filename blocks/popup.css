@@ -6,6 +6,7 @@
    top: 0;
    height: 100%;
    width: 100%;
+   z-index: 2;
 }
 .popup__content{
     position: fixed;
@@ -26,6 +27,7 @@
 }
 
 .popup__title{
+    color: antiquewhite;
     text-align: center;
     margin: 18px auto;
     background-color: #743726;

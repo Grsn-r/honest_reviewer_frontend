@@ -42,7 +42,7 @@ export default function PostReviewPopup() {
             name="title" 
             placeholder="Título de la reseña" 
             maxLength={50} 
-            minLength={10} 
+            minLength={5} 
             onChange={handleData} />
             <input className="popup__form_input" 
             type="file" 
