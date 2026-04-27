@@ -21,8 +21,10 @@ function Main({onOpenPopup}) {
             <section className='user'>
                 <div className='user__info'>
                     <p className='user__info_name'>{user.name}</p>
-                    <img className='user__info_edit' src={edit} alt='edit' onClick={() => onOpenPopup(editUserPopup)} />
-                    <img className='user__info_edit' src={setPw} alt='edit' onClick={() => onOpenPopup(setPasswordPopup)}/>
+                    <div>
+                        <img className='user__info_edit' src={edit} alt='edit' onClick={() => onOpenPopup(editUserPopup)} />
+                        <img className='user__info_edit' src={setPw} alt='edit' onClick={() => onOpenPopup(setPasswordPopup)}/>
+                    </div>
                 </div>
                 <button className='user__review-button' onClick={()=> onOpenPopup(postReview)} ></button>
                 <p className='user__bio'>{user.bio}</p>
