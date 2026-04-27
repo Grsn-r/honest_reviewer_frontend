@@ -12,6 +12,7 @@ import api from './utils/api';
 import ProtectedRoute from './ProtectedRoute';
 import FullReview from './components/main/reviews/Full-review'
 import Popup from './components/popups/Popup'
+import InfoTool from './components/InfoTool.jsx';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
   const [user, setUser] = useState({});
   const [popup, setPopup] = useState(null);
   const [reviews, setReviews] = useState([]);
+  const [iTool, setItool] = useState(false);
 
   const review = popup?.reviewId ? reviews.find(r => r._id === popup.reviewId) : null ;
 
@@ -37,6 +39,7 @@ function App() {
     auth.register(name, email, password)
     .then(data => {
       if (data) {
+        setItool(true);
         setTimeout(() => {navigate('login')}, 2000);
       }
     })
@@ -144,7 +147,7 @@ function App() {
   const handleComment = (rv, text) => {
     api.setComment(rv._id, text).then(newCmnt => {
       setReviews(prev => prev.map(review => {
-        if (rv._id === newCmnt._id) {
+        if (review._id === newCmnt._id) {
           return { ...review, comments: newCmnt.comments};
         } else { return review }
       }))
@@ -201,7 +204,8 @@ function App() {
         logout={logout}
       />
       <Routes>
-        <Route path='/register' element={<Register handleRegister={handleRegister}/>} />
+        <Route path='/register' element={<Register handleRegister={handleRegister}>
+          {iTool && <InfoTool/>} </Register>} />
         <Route path='/login' element={<Login handleLogin={handleLogin}/>}/>
         <Route path='/' element={
           <ProtectedRoute>

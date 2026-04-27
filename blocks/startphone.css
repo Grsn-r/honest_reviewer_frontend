@@ -2,6 +2,14 @@
   .header__info_element{
     font-size: 24px;
   }
+
+  .user__info{
+    flex-direction: column;
+  }
+
+  .user__info_name{
+    margin-bottom: 0;
+  }
   .page{
     margin: 0 15px;
     font-size: 18px;
@@ -36,6 +44,18 @@
 @media screen and (max-width: 400px) {
   .header__info_element{
     font-size: 24px;
+  }
+
+  .user__info{
+    flex-direction: column;
+  }
+
+  .user__info_name{
+    margin-bottom: 0;
+  }
+
+  .page{
+    font-size: 16px;
   }
     .reviews{
         grid-template-columns: 1fr;

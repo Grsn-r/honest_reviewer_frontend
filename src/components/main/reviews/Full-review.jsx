@@ -25,12 +25,12 @@ export default function FullReview({review}) {
                 <button className="full-review__form_submit">Comentar</button>
             </form>
             <div className="full-review__comments">
-                {review.comments.map(cmnt => (
-                    <div className='full-review__comments_comment' >
+                {review.comments.map(cmnt => {
+                    return (<div key={cmnt._id} className='full-review__comments_comment' >
                         <img className='full-review__comments_comment_eraser' src={cmntEraser} alt='borrar' onClick={() => handleCommentDelete(review._id, cmnt._id)} />
                         <p className='full-review__comments_comment_text' >{cmnt.author.name} dice: {cmnt.text}</p>
-                    </div>
-                ))}
+                    </div>)
+                })}
             </div>
         </div>
     )
