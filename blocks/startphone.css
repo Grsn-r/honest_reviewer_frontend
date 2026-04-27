@@ -1,26 +1,36 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 468px) {
   .header__info_element{
     font-size: 24px;
   }
 
-  .user__info{
-    flex-direction: column;
-  }
-
-  .user__info_name{
-    margin-bottom: 0;
-  }
-  .page{
-    margin: 0 15px;
-    font-size: 18px;
-  }
-
   .header{
-    font-size: 18px;
+    border-radius: 5px;
+  }
+
+  .header_sesion_logout{
+    padding: 0;
   }
 
   .user{
-    font-size: 18px;
+    border-radius: 5px;
+  }
+
+  .user__info{
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .user__info_name{
+    margin: 0;
+  }
+
+  .user__info_edit{
+    height: 13px;
+  }
+
+  .page{
+    margin: 0 15px;
+    font-size: 17px;
   }
 
   .reviews{
@@ -28,14 +38,10 @@
     gap: 10px;
   }
   .popup__content{
-    width: 75vw;
+    width: 85vw;
   }
 
   .popup__form{
-    width: 100%;
-  }
-
-  .full-review{
     width: 100%;
   }
 
@@ -43,7 +49,11 @@
 
 @media screen and (max-width: 400px) {
   .header__info_element{
-    font-size: 24px;
+    font-size: 20px;
+  }
+
+  .header_sesion_logout{
+    padding: 0;
   }
 
   .user__info{
@@ -57,20 +67,15 @@
   .page{
     font-size: 16px;
   }
-    .reviews{
-        grid-template-columns: 1fr;
-    }
-    .full-review__form_submit{
-      font-size: 18px;
-      font-weight: 200;
-    }
 
-    .full-review__form{
-      flex-wrap: wrap;
-    }
+  .popup__content{
+    width: 90vW;
+  }
+  .reviews{
+    grid-template-columns: 1fr;
+  }
 
-    .full-review__form_input{
-      font-size: 18px;
-      width: 100%;
-    }
+  .full-review__form{
+    flex-wrap: wrap;
+  }
 }

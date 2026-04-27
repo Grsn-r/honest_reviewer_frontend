@@ -2,16 +2,15 @@
     display: flex;
     flex-direction: column;
     background-color: rgba(118, 54, 38, 0.65);
-    border-radius: 10px;
-    width: 50vw;
+    border-radius: 5px;
     min-height: 50vh;
-    max-height: 80vh;
+    max-height: 70vh;
 }
 
 .full-review__text{
     background-color: #90afc5;
     border-radius: 5px;
-    margin: 20px 20px;
+    margin: 20px;
     font-size: 20px;
 }
 
@@ -24,23 +23,18 @@
 }
 
 .full-review__form_submit{
-    color: antiquewhite;
     align-self: baseline;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    margin: 15px;
     font-size: 18px;
     font-weight: 500;
     border: none;
     border-radius: 3px;
-    background-color: rgb(17, 4, 104);
+    background-color: #ff9800;
 }
 
 .full-review__form_input{
-    overflow: scroll;
-    border-top: none;
-    border-right: none;
+    border: none;
     border-radius: 5px;
-    width: 75%;
 }
 
 .full-review__comments{
@@ -57,7 +51,7 @@
     display: flex;
     flex-direction: row-reverse;
     background-color: rgb(48, 165, 165);
-    margin: 5px 20px;
+    margin: 3px 20px;
     border-radius: 3px;
     padding: 3px;
 }

@@ -4,7 +4,7 @@
   }
 
   .popup__content{
-    width: 70vw;
+    min-width: 70vw;
   }
 
   .popup__form{

@@ -28,8 +28,7 @@
 
 .popup__title{
     color: antiquewhite;
-    text-align: center;
-    margin: 18px auto;
+    margin: 20px auto;
     background-color: #743726;
     border-radius: 4px;
     padding: 4px;
@@ -57,12 +56,11 @@
 }
 
 .popup__close{
-    z-index: 2;
-    height: 20px;
-    width: 20px;
+    height: 18px;
+    width: 18px;
     position: absolute;
-    top: 4px;
-    right: 4px;
+    top: 3px;
+    right: 3px;
     cursor: pointer;
     background-color: rgb(66, 7, 7);
     background-image: url(../src/images/back.svg);
