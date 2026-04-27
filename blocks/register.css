@@ -3,7 +3,7 @@
     flex-direction: column;
     background-color: rgb(118, 54, 38);
     margin: auto;
-    width: 40vw;
+    width: 365px;
     height: 50vh;
     border-radius: 20px;
     color: antiquewhite;
@@ -22,13 +22,14 @@
 
 .register__form_input{
     margin: 20px auto 0;
-    width: 35vw;
+    width: 280px;
 }
 
 .register__button{
     margin: 15px auto;
     padding: 5px;
     border-radius: 5px;
+    background-color: rgb(51, 198, 51);
 }
 
 .register__link{

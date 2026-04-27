@@ -24,7 +24,7 @@ export default function Login({handleLogin}) {
             <form className="login__form" onSubmit={handleSubmit}>
                 <input className="login__form_input" type="email" required name="email" placeholder="tu correo" onChange={handleData}/>
                 <input className="login__form_input" type="password" required name="password" placeholder="tu contraseña" onChange={handleData}/>
-                <button className="register__button">Iniciar sesión</button>
+                <button className="login__button">Iniciar sesión</button>
                 <Link className="login__link" to="/register" className="login__link">¿no tienes cuenta?, REGÍSTRATE</Link>
             </form>
         </div>
