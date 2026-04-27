@@ -25,7 +25,7 @@
 }
 
 .header__sesion{
-    margin: auto;
+    margin: auto 5px auto auto;
 }
 
 .header__sesion_logout{
