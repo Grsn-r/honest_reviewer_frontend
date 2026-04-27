@@ -1,6 +1,18 @@
 @media screen and (max-width: 768px) {
+  .header__info_element{
+    font-size: 24px;
+  }
+
+  .user__info{
+    flex-direction: column;
+  }
+
+  .user__info_name{
+    margin-bottom: 0;
+  }
   .page{
     margin: 0 15px;
+    font-size: 18px;
   }
 
   .header{
@@ -30,7 +42,35 @@
 }
 
 @media screen and (max-width: 400px) {
+  .header__info_element{
+    font-size: 24px;
+  }
+
+  .user__info{
+    flex-direction: column;
+  }
+
+  .user__info_name{
+    margin-bottom: 0;
+  }
+
+  .page{
+    font-size: 16px;
+  }
     .reviews{
         grid-template-columns: 1fr;
+    }
+    .full-review__form_submit{
+      font-size: 18px;
+      font-weight: 200;
+    }
+
+    .full-review__form{
+      flex-wrap: wrap;
+    }
+
+    .full-review__form_input{
+      font-size: 18px;
+      width: 100%;
     }
 }

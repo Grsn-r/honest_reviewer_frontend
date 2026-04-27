@@ -1,16 +1,17 @@
 import dlt from '../../../images/delete.svg';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import UserContext from '../../../context/userContext';
-import FullReview from './Full-review';
 
 function Review(props) {
-    const {handleReviewDelete, popup, handlePopup} = useContext(UserContext);
+    
+    const {handleReviewDelete, handlePopup, handleLike, handleDislike} = useContext(UserContext);
+   
     const {review} = props;
-    const {title, text, pictureUrl, comments} = review;
+
+    const {title, text, pictureUrl, comments, likes, dislikes} = review;
 
     const getFullReview = () => {
-        const fullReview = {title: title, children: <FullReview review={review} /> };
-        handlePopup(fullReview);
+        handlePopup({reviewId: review._id});
     }
 
     return (
@@ -19,8 +20,8 @@ function Review(props) {
             <p className="review__title">{title}</p>
             <img className="review__image" src={pictureUrl} alt='review image' onClick={() => getFullReview()} />
             <div className='review__footer'>
-                <button className='review__footer_reaction'>🚬</button>
-                <button className='review__footer_reaction'>💔</button>
+                <button className='review__footer_like' onClick={() => handleLike(review._id)} >🚬 {likes.length}</button>
+                <button className='review__footer_dislike' onClick={() => handleDislike(review._id)} >{dislikes.length}💔</button>
             </div>
         </div>
     )

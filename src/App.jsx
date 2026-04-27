@@ -10,6 +10,9 @@ import * as auth from './utils/auth.js';
 import UserContext from './context/userContext';
 import api from './utils/api';
 import ProtectedRoute from './ProtectedRoute';
+import FullReview from './components/main/reviews/Full-review'
+import Popup from './components/popups/Popup'
+import InfoTool from './components/InfoTool.jsx';
 
 
 function App() {
@@ -18,6 +21,9 @@ function App() {
   const [user, setUser] = useState({});
   const [popup, setPopup] = useState(null);
   const [reviews, setReviews] = useState([]);
+  const [iTool, setItool] = useState(false);
+
+  const review = popup?.reviewId ? reviews.find(r => r._id === popup.reviewId) : null ;
 
   function handlePopup(popup){
     setPopup(popup);
@@ -33,11 +39,12 @@ function App() {
     auth.register(name, email, password)
     .then(data => {
       if (data) {
+        setItool(true);
         setTimeout(() => {navigate('login')}, 2000);
       }
     })
     .catch(err => {
-      return console.error(`Error: ${err}`);
+      return console.error(err);
     })
   }
 
@@ -129,20 +136,48 @@ function App() {
   }
 
   const handleReviewDelete = (rv) => {
-    api.eraseReview(rv._id).then(() => {
-      setReviews(revs => revs.filter(currentRv => currentRv._id !== rv._id));
-    }).catch(err => console.error(err));
+    api.eraseReview(rv._id).then((res) => {
+        return setReviews(revs => revs.filter(currentRv => currentRv._id !== rv._id))
+    }).catch(err => {
+      return alert('no puedes borrar post ajenos')
+    });
   }
 
 
   const handleComment = (rv, text) => {
-    api.setComment(rv._id, text).then((newCmnt) => {
-      setReviews(reviews.map(review => {
-        if (rv._id === newCmnt._id) {
-          return newCmnt 
-        } else { return review } //devolver la review intacta
+    api.setComment(rv._id, text).then(newCmnt => {
+      setReviews(prev => prev.map(review => {
+        if (review._id === newCmnt._id) {
+          return { ...review, comments: newCmnt.comments};
+        } else { return review }
       }))
-    }).then(err => console.err(err));
+    }).catch(err => console.error(err));
+  }
+
+  const handleCommentDelete = (reviewId, commentId) => {
+    api.removeComment(reviewId, commentId).then(updated => {setReviews(
+      prev => prev.map(review => review._id === updated._id ? {...review, comments: updated.comments} : review )
+    )})
+    .then(err => {
+      console.log(err)
+    })
+  }
+
+  const handleLike = (reviewId) => {
+    api.likeReview(reviewId)
+    .then(liked => {
+      setReviews(prev => prev.map(rv => rv._id === liked._id ? {...rv, likes: liked.likes, dislikes: liked.dislikes} : rv))
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
+  const handleDislike = (reviewId) => {
+    api.dislikeReview(reviewId)
+    .then(disliked => {
+      setReviews(prev => prev.map(rv => rv._id === disliked._id ? {...rv, likes: disliked.likes, dislikes: disliked.dislikes} : rv))
+    })
   }
 
   return (
@@ -152,7 +187,10 @@ function App() {
         reviews,
         popup,
         logged,
+        handleDislike,
+        handleLike,
         handleComment,
+        handleCommentDelete,
         handlePopup,
         handlePostReview,
         handleClosePopup, 
@@ -166,12 +204,16 @@ function App() {
         logout={logout}
       />
       <Routes>
-        <Route path='/register' element={<Register handleRegister={handleRegister}/>} />
+        <Route path='/register' element={<Register handleRegister={handleRegister}>
+          {iTool && <InfoTool/>} </Register>} />
         <Route path='/login' element={<Login handleLogin={handleLogin}/>}/>
         <Route path='/' element={
           <ProtectedRoute>
             <Main 
               onOpenPopup={handlePopup}/>
+            {popup?.reviewId &&  <Popup title={review.title} onClose ={handleClosePopup} >
+              <FullReview review={review}/>
+              </Popup>}
           </ProtectedRoute>
           } />
       </Routes>

@@ -82,6 +82,30 @@ class Api{
         })
         .then(this._checkResponse);
     }
+
+    removeComment(reviewId, commentId) {
+        return fetch(`${this._baseURL}/${reviewId}/comments/${commentId}`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+        .then(this._checkResponse);
+    }
+
+    likeReview(reviewId) {
+        return fetch(`${this._baseURL}/${reviewId}/likes`, {
+            method: 'PUT',
+            headers: this._headers,
+        })
+        .then(this._checkResponse);
+    }
+
+    dislikeReview(reviewId) {
+        return fetch(`${this._baseURL}/${reviewId}/likes`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+        .then(this._checkResponse);
+    }
 }
 
 const api = new Api({

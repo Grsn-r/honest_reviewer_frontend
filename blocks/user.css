@@ -1,4 +1,7 @@
 .user{
+    position: sticky;
+    top: 0;
+    right: 150px;
     display: grid;
     grid-template-columns: 4fr 2fr 4fr;
     background-color: #4b0306;
@@ -8,6 +11,7 @@
     color: antiquewhite;
     font-size: 22px;
     padding: 0 10px;
+    z-index: 1;
 }
 
 .user__info{

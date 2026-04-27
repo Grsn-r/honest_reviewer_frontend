@@ -2,3 +2,8 @@
     font-family: 'Istok-web';
     src: url(./IstokWeb-Regular.ttf), format('truetype');
 }
+
+@font-face {
+    font-family: 'Innovative-web';
+    src: url(./Innovative-font.ttf), format('truetype');
+}
