@@ -23,8 +23,7 @@ html {
 body {
   margin: 0;
   font-family: 'Istok-web', sans-serif;
-  background-image: url(../src/images/backgroun1.png);
-  background-size: cover;
+  background-color: black;
 }
 
 /**

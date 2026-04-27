@@ -20,8 +20,8 @@ function Review(props) {
             <p className="review__title">{title}</p>
             <img className="review__image" src={pictureUrl} alt='review image' onClick={() => getFullReview()} />
             <div className='review__footer'>
-                <button className='review__footer_like' onClick={() => handleLike(review._id)} >🚬 {likes.length}</button>
-                <button className='review__footer_dislike' onClick={() => handleDislike(review._id)} >{dislikes.length}💔</button>
+                <button className='review__footer_reaction' onClick={() => handleLike(review._id)} >🚬 {likes.length}</button>
+                <button className='review__footer_reaction' onClick={() => handleDislike(review._id)} >{dislikes.length}👎🏻</button>
             </div>
         </div>
     )
