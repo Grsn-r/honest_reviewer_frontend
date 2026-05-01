@@ -12,3 +12,5 @@ Puede eliminar su contenido pero no el de otros incluyendo los comentarios
 Diseño responsivo para teléfonos, tablets y laptops
 autenticación de usuario via token
 Se pueden subir imágenes
+
+pruévala por tí mismo: https://honest-reviewer.vercel.app/
