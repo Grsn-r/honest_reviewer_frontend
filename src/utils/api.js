@@ -46,7 +46,7 @@ class Api{
         formData.append('title', data.title);
         formData.append('text', data.text);
         formData.append('image', data.picture);
-        return fetch(`${this._baseURL}`, {
+        return fetch(`${this._baseURL}/reviews`, {
             method: 'POST',
             headers: {
                 Authorization: this._headers.Authorization,
@@ -57,7 +57,7 @@ class Api{
     }
 
     getReviews() {
-        return fetch(`${this._baseURL}`, {
+        return fetch(`${this._baseURL}/reviews`, {
             method: 'GET',
             headers: this._headers,
         })
@@ -65,7 +65,7 @@ class Api{
     }
 
     eraseReview(reviewId) {
-        const url = `${this._baseURL}/${reviewId}`;
+        const url = `${this._baseURL}/reviews/${reviewId}`;
         return fetch(url, {
             method: 'DELETE',
             headers: this._headers,
@@ -75,7 +75,7 @@ class Api{
 
     setComment(reviewId, text) {
 
-        return fetch(`${this._baseURL}/${reviewId}/comments`, {
+        return fetch(`${this._baseURL}/reviews/${reviewId}/comments`, {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({text}),
@@ -84,7 +84,7 @@ class Api{
     }
 
     removeComment(reviewId, commentId) {
-        return fetch(`${this._baseURL}/${reviewId}/comments/${commentId}`, {
+        return fetch(`${this._baseURL}/reviews/${reviewId}/comments/${commentId}`, {
             method: 'DELETE',
             headers: this._headers,
         })
@@ -92,7 +92,7 @@ class Api{
     }
 
     likeReview(reviewId) {
-        return fetch(`${this._baseURL}/${reviewId}/likes`, {
+        return fetch(`${this._baseURL}/reviews/${reviewId}/likes`, {
             method: 'PUT',
             headers: this._headers,
         })
@@ -100,7 +100,7 @@ class Api{
     }
 
     dislikeReview(reviewId) {
-        return fetch(`${this._baseURL}/${reviewId}/likes`, {
+        return fetch(`${this._baseURL}/reviews/${reviewId}/likes`, {
             method: 'DELETE',
             headers: this._headers,
         })
