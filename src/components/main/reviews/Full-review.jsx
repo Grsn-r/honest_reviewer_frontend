@@ -21,7 +21,7 @@ export default function FullReview({review}) {
             {review.text}
             </p>
             <form className="full-review__form" onSubmit={handleSubmit} >
-                <input className="full-review__form_input" type='text'placeholder="comenta" value={data} onChange={(e) => setData(e.target.value)} />
+                <input className="full-review__form_input" type='text' placeholder="Comenta" value={data} onChange={(e) => setData(e.target.value)} />
                 <button className="full-review__form_submit">Comentar</button>
             </form>
             <div className="full-review__comments">
