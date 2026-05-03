@@ -27,8 +27,8 @@ export default function EditUserInfo() {
 
     return (
         <form className="popup__form" onSubmit={handleSubmit}>
-            <input className="popup__form_input" type="text" name="name" placeholder="Nuevo nombre o alias" maxLength={40} minLength={3} onChange={handleData}/>
-            <input className="popup__form_input" type="text" name="bio" placeholder="escribe algo sobre tí" maxLength={300} onChange={handleData} />
+            <input className="popup__form_input" type="text" name="name" placeholder="Nuevo nombre o alias" maxLength={20} minLength={3} onChange={handleData}/>
+            <input className="popup__form_input" type="text" name="bio" placeholder="escribe algo sobre tí" maxLength={35} onChange={handleData} />
             <button className={buttonClass} >Guardar</button>
         </form>
     )
