@@ -1,3 +1,5 @@
+import { toast } from "sonner";
+
 const BASE_URL = 'https://honestreviewerbackend-production.up.railway.app';
 
 export const register = (name, email, password) => {
@@ -16,7 +18,7 @@ export const register = (name, email, password) => {
     })
     .catch(err => {
         return err.json().then(error => {
-            alert(error.message)
+            toast.error(error.message);
             throw error
         })
     })
@@ -42,10 +44,4 @@ export const login = (email, password) => {
             return data;
         }
     })
-    .catch(err =>{
-        return err.json().then(error => {
-            alert(error.message)
-            throw error
-        })
-    });
 };
