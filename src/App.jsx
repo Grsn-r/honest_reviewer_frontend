@@ -64,6 +64,7 @@ function App() {
             setReviews(reviewsData);
             setIsLogged(true);
             navigate('/');
+            toast.success('Login correcto');
           })
         }
       })
