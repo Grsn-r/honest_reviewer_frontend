@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
+import { toast, Toaster } from 'sonner';
 import './App.css'
 import Header from './components/header/Header';
 import Footer from './components/Footer';
@@ -44,7 +45,7 @@ function App() {
       }
     })
     .catch(err => {
-      return console.error(err);
+      console.error(err);
     })
   }
 
@@ -67,7 +68,7 @@ function App() {
         }
       })
       .catch(error => {
-        return console.error(error);
+        toast.error('Datos incorrectos');
       })
     }
   }
@@ -105,9 +106,10 @@ function App() {
     .then(newData => {
       setUser(prev => ({...prev, ...data}));
       handleClosePopup();
+      toast.success('datos modificados')
     })
     .catch(err => {
-      console.error(err);
+      return console.log(err);
     })
   }
 
@@ -116,9 +118,10 @@ function App() {
     .then(modified => {
       if (modified) {
         handleClosePopup();
+        toast.success('contraseña modificada')
       }
     }).catch(err => {
-      console.error(err);
+      toast.error('Contraseña incorrecta')
     })
   }
 
@@ -131,7 +134,7 @@ function App() {
       })
     })
     .catch(err => {
-      return console.error(err);
+      console.log(err);
     })
   }
 
@@ -139,7 +142,7 @@ function App() {
     api.eraseReview(rv._id).then((res) => {
         return setReviews(revs => revs.filter(currentRv => currentRv._id !== rv._id))
     }).catch(err => {
-      return alert('no puedes borrar post ajenos')
+      return toast.error('No puedes elliminar contenigo ageno');
     });
   }
 
@@ -159,7 +162,7 @@ function App() {
       prev => prev.map(review => review._id === updated._id ? {...review, comments: updated.comments} : review )
     )})
     .then(err => {
-      console.log(err)
+      console.log(err);
     })
   }
 
@@ -182,6 +185,7 @@ function App() {
 
   return (
     <div className='page'>
+      <Toaster/>
       <UserContext.Provider value={{
         user,
         reviews,

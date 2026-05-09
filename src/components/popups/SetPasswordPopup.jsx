@@ -9,7 +9,7 @@ export default function SetPasswordPopup() {
 
     let buttonClass = 'popup__form_button';
 
-    if (data.password.trim() === '' && data.newPassword.trim() === '') {
+    if (data.password.trim() === '' || data.newPassword.trim() === '') {
         buttonClass += ' popup__form_button-disabled'
     } 
 

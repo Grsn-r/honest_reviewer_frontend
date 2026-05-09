@@ -41,7 +41,7 @@ export default function PostReviewPopup() {
             type="text" 
             name="title" 
             placeholder="Título de la reseña" 
-            maxLength={50} 
+            maxLength={30} 
             minLength={5} 
             onChange={handleData} />
             <input className="popup__form_input" 
