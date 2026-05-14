@@ -8,7 +8,10 @@
 }
 
 .full-review__text{
-    background-color: #90afc5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.3rem;
+    color: aliceblue;
+    background-color: transparent;
     border-radius: 5px;
     margin: 20px;
     padding: 4px;
@@ -50,11 +53,10 @@
 
 .full-review__comments_comment{
     display: flex;
-    flex-direction: row-reverse;
-    background-color: rgb(183, 215, 215);
+    flex-direction: row;
+    background-color:transparent;
     margin: 3px 20px;
-    border-radius: 3px;
-    border: none;
+    color: aliceblue;
     padding: 3px;
 }
 

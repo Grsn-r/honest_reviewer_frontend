@@ -6,7 +6,7 @@ import cmntEraser from '../../../images/eraseCmnt.svg';
 
 export default function FullReview({review}) {
 
-    const {handleComment, handleCommentDelete } = useContext(UserContext);
+    const {handleComment, handleCommentDelete, user } = useContext(UserContext);
     const [data, setData] = useState('')
     
     const handleSubmit = (e) => {
@@ -27,8 +27,9 @@ export default function FullReview({review}) {
             <div className="full-review__comments">
                 {review.comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map(cmnt => {
                     return (<div key={cmnt._id} className='full-review__comments_comment' >
-                        <img className='full-review__comments_comment_eraser' src={cmntEraser} alt='borrar' onClick={() => handleCommentDelete(review._id, cmnt._id)} />
-                        <p className='full-review__comments_comment_text' >{cmnt.author.name} : {cmnt.text}</p>
+                        <p className='full-review__comments_comment_text' ><strong>{cmnt.author.name}</strong> : {cmnt.text}</p>
+                        {user?._id === cmnt?.author?._id && <img className='full-review__comments_comment_eraser' src={cmntEraser} alt='borrar' onClick={() => { handleCommentDelete(review._id, cmnt._id)
+                        }} />}
                     </div>)
                 })}
             </div>
