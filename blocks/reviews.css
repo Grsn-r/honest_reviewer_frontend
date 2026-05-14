@@ -45,8 +45,13 @@
 
 .review__footer{
     display: flex;
-    justify-content:space-around;
+    justify-content:space-evenly;
     margin: 10px 30px;
+}
+
+.review__footer_counter{
+    margin: 0;
+    text-align: center;
 }
 
 .review__footer_like{
