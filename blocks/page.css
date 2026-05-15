@@ -5,3 +5,7 @@ flex-direction: column;
 margin: 0 150px 0;
 height: 100vh;
 }
+
+body {
+    background-color: #F5F7FA;
+}

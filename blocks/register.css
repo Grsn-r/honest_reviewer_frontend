@@ -1,7 +1,7 @@
 .register{
     display: flex;
     flex-direction: column;
-    background-color: rgb(118, 54, 38);
+    background-color: #717171;
     margin: auto;
     width: 350px;
     height: 50vh;
