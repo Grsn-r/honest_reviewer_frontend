@@ -4,8 +4,7 @@
     right: 150px;
     display: grid;
     grid-template-columns: 4fr 2fr 4fr;
-    background-color: #4b0306;
-    border: none;
+    background-color: #717171;
     height: 70px;
     border-radius: 20px;
     color: antiquewhite;
