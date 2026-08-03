@@ -109,7 +109,7 @@ class Api{
 }
 
 const api = new Api({
-    baseURL: 'https://honestreviewerbackend-production.up.railway.app',
+    baseURL: 'https://honest-reviewer-backend.onrender.com',
     headers: {
         "Content-Type" : "application/json",
     }
