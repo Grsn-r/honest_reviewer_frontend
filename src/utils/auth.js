@@ -1,6 +1,6 @@
 import { toast } from "sonner";
 
-const BASE_URL = 'https://honestreviewerbackend-production.up.railway.app';
+const BASE_URL = 'https://honest-reviewer-backend.onrender.com';
 
 export const register = (name, email, password) => {
     return fetch(`${BASE_URL}/register`, {
