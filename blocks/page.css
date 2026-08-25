@@ -9,3 +9,7 @@ height: 100vh;
 body {
     background-color: #F5F7FA;
 }
+
+* {
+    box-sizing: border-box;
+}
