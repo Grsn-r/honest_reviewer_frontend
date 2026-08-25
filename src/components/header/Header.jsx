@@ -1,15 +1,23 @@
-import logo from '../../images/pageLogo.svg'
-
 function Header({logged, logout}) {
+
+    const frases = [
+        "Aquí nadie se salva de una reseña.",
+        "La verdad duele... pero tiene estrellas.",
+        "¿Película, juego o tu compa? Todo merece opinión.",
+        "Califica sin filtros."
+    ];
+
+    const frase = frases[Math.floor(Math.random() * frases.length)];
+
     return (
         <header className="header">
-             <img src={logo} alt='logo' />
+           
             <div className="header__text">
-                <p className='header__info_element'>Haz una reseña HONESTA</p>
+                {frase}
             </div>
            
             <div className="header__sesion">
-                {logged && (<button className="header__sesion_logout" onClick={logout}>Cerrar Sesión</button>)}
+                {logged && (<button className="header__sesion_logout" onClick={logout}>Cerrar Sesión</button>) }
             </div>
         </header>
     )

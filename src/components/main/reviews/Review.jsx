@@ -19,7 +19,9 @@ function Review(props) {
             {user?._id === author?._id && (<img className='review__delete' src={dlt} alt='borrar reseña' onClick={() => handleReviewDelete(review)} />)}
             
             <p className="review__title">{title}</p>
-            <img className="review__image" src={pictureUrl} alt='review image' onClick={() => getFullReview()} />
+            <div className="review__image-container" >
+                <img className='review__image' src={pictureUrl} alt='review image' onClick={() => getFullReview()} />
+            </div>
             <div className='review__footer'>
                 <div>
                     <button className='review__footer_like' onClick={() => handleLike(review._id)} /> 

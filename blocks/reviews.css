@@ -1,11 +1,19 @@
+.reviews{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 0;
+}
+
 .review{
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     background-color: #43A046;
     border: none;
-    max-height: 350px;
     color: antiquewhite;
+    height: 280px;
+    min-width: 0;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
@@ -21,23 +29,22 @@
 
 .review__title{
     margin: 5px auto;
-    text-align: center;
     background-color: transparent;
     padding: 0;
     border-radius: 5px;
 }
 
-.reviews{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    padding: 0;
+.review__image-container {
+    border-radius: 5px;
+    max-width: 80%;
+    overflow: hidden;
+    margin: auto;
 }
 
-.review__image{
-    max-height: 190px;
-    margin: auto;
-    border-radius: 5px;
+.review__image {
+    height: 100%;
+    object-fit: cover;
+    margin: 0 auto;
 }
 
 .review__image:hover{
@@ -45,9 +52,9 @@
 }
 
 .review__footer{
+    margin: 1rem 0;
     display: flex;
     justify-content:space-evenly;
-    margin: 10px 30px;
 }
 
 .review__footer_counter{
