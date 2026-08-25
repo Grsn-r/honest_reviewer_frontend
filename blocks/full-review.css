@@ -1,21 +1,22 @@
+
+
 .full-review{
     display: flex;
     flex-direction: column;
-    background-color: rgb(80, 78, 78);
+    background-color: rgb(135, 130, 130);
     border-radius: 5px;
     min-height: 50vh;
-    max-height: 70vh;
+
 }
 
 .full-review__text{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.3rem;
     color: aliceblue;
     background-color: transparent;
     border-radius: 5px;
     margin: 20px;
     padding: 4px;
-    font-weight: bold;
+    text-align: justify;
 }
 
 .full-review__form{
@@ -33,7 +34,7 @@
     font-weight: 500;
     border: none;
     border-radius: 3px;
-    background-color: #ff9800;
+    background-color: #51a7f1;
 }
 
 .full-review__form_input{
