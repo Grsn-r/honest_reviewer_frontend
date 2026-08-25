@@ -1,5 +1,5 @@
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 426px) {
   .header__info_element{
     font-size: 20px;
   }
@@ -18,13 +18,14 @@
 
   .page{
     font-size: 14px;
+    padding: 0 1rem;
   }
 
   .popup__content{
     width: 90vW;
   }
   .reviews{
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .full-review__form{

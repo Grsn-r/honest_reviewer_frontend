@@ -1,13 +1,15 @@
 .page{
-font-size: 18px;
-display: flex;
-flex-direction: column;
-margin: 0 150px 0;
-height: 100vh;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0 10rem;
+    height: 100vh;
 }
 
 body {
-    background-color: #F5F7FA;
+    background: #3695b5;
+    background: linear-gradient(90deg, rgba(54, 149, 181, 1) 0%, rgba(242, 159, 150, 1) 100%);
 }
 
 * {

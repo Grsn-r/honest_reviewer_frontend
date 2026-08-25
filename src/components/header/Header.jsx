@@ -1,7 +1,3 @@
-import { useContext } from 'react';
-import logo from '../../images/pageLogo.svg'
-import UserContext from '../../context/userContext';
-
 function Header({logged, logout}) {
 
     const frases = [

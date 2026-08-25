@@ -1,7 +1,7 @@
 .register{
     display: flex;
     flex-direction: column;
-    background-color: #717171;
+    background-color: #2f618d;
     margin: auto;
     width: 350px;
     height: 50vh;
@@ -30,6 +30,7 @@
     padding: 5px;
     border-radius: 5px;
     background-color: rgb(51, 198, 51);
+    border: none;
 }
 
 .register__link{
