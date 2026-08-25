@@ -1,6 +1,9 @@
+import { useContext } from 'react';
 import logo from '../../images/pageLogo.svg'
+import UserContext from '../../context/userContext';
 
 function Header({logged, logout}) {
+
     return (
         <header className="header">
              <img src={logo} alt='logo' />
@@ -9,7 +12,7 @@ function Header({logged, logout}) {
             </div>
            
             <div className="header__sesion">
-                {logged && (<button className="header__sesion_logout" onClick={logout}>Cerrar Sesión</button>)}
+                {logged && (<button className="header__sesion_logout" onClick={logout}>Cerrar Sesión</button>) }
             </div>
         </header>
     )

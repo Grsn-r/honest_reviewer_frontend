@@ -41,3 +41,7 @@
     background: #e68a00;
     cursor: pointer;
 }
+
+a {
+    text-decoration: none;
+}

@@ -128,7 +128,7 @@ function App() {
 
   const handlePostReview = (data) => {
     api.setReview(data)
-    .then(review => {
+    .then(() => {
       api.getReviews().then(rvs => {
         setReviews(rvs); 
         handleClosePopup();
@@ -216,7 +216,7 @@ function App() {
           <ProtectedRoute>
             <Main 
               onOpenPopup={handlePopup}/>
-            {popup?.reviewId &&  <Popup title={review.title} onClose ={handleClosePopup} >
+              {popup?.reviewId &&  <Popup title={review.title} onClose ={handleClosePopup} >
               <FullReview review={review}/>
               </Popup>}
           </ProtectedRoute>

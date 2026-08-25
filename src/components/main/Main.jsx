@@ -10,7 +10,7 @@ import SetPasswordPopup from '../popups/SetPasswordPopup';
 import PostReviewPopup from '../popups/PostReviewPopup';
 
 function Main({onOpenPopup}) {
-    const {user, popup, handleClosePopup, reviews} = useContext(UserContext);
+    const {user, popup, handleClosePopup, reviews, logged} = useContext(UserContext);
     
     const editUserPopup = {title:'Modifica tus datos', children:<EditUserInfo/>}
     const setPasswordPopup = {title: 'Cambia tu contraseña', children: <SetPasswordPopup/>}
@@ -29,6 +29,7 @@ function Main({onOpenPopup}) {
                 <button className='user__review-button' onClick={()=> onOpenPopup(postReview)} ></button>
                 <p className='user__bio'>{user.bio}</p>
             </section>
+            
             <section>
                 <ul className="reviews">
                     {reviews.map(rv => (
