@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
 .header{
+    font-family:  "Merriweather Sans", sans-serif;
+    font-weight: 700;
     display: flex;
     flex-direction: row;
-    background-color: #132531;
+    background-color: #2f618d;
     border: none;
     border-radius: 20px;
     color: antiquewhite;
@@ -23,10 +28,10 @@
 
 .header__sesion_logout{
     border-radius: 5px;
-    background-color: #ff9800;
+    background-color: #9a9792;
     color:antiquewhite;
     padding: 4px;
-    font-weight: 400;
+    font-weight: 100;
     border: none;
 }
 

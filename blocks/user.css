@@ -4,7 +4,7 @@
     right: 150px;
     display: grid;
     grid-template-columns: 4fr 2fr 4fr;
-    background-color: #717171;
+    background-color: #95324b;
     height: 70px;
     border-radius: 20px;
     color: antiquewhite;
@@ -40,7 +40,7 @@
 .user__review-button{
     background-image: url(../src/images/post.svg);
     background-size: contain;
-    background-color: #ff9800;
+    background-color: #4895bf;
     border: none;
     width: 35px;
     height: 35px;

@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
 .page{
+    font-family: "Lato", sans-serif;;
     font-size: 18px;
     display: flex;
     flex-direction: column;
@@ -8,8 +12,8 @@
 }
 
 body {
-    background: #3695b5;
-    background: linear-gradient(90deg, rgba(54, 149, 181, 1) 0%, rgba(242, 159, 150, 1) 100%);
+    background: #0f0f52;
+    background: linear-gradient(90deg, rgba(15, 15, 82, 1) 0%, rgba(39, 39, 145, 1) 35%, rgba(0, 212, 255, 1) 100%);
 }
 
 * {
