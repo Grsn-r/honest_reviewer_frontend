@@ -12,14 +12,16 @@
     color: antiquewhite;
     justify-content: space-between;
     padding: 2rem 3rem;
+    background-image: url(/src/images/mediabg.jpg);
+    background-size: 300px;
+    background-repeat: repeat;
 }
 
 .header__text{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 22px;
+    font-weight: bold;
     margin: 0;
+    background-color: #9a979279;
+    border-radius: 5px;
 }
 
 .header__sesion{
