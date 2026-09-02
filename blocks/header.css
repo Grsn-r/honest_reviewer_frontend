@@ -20,8 +20,9 @@
 .header__text{
     font-weight: bold;
     margin: 0;
-    background-color: #9a979279;
+    background-color: #20201e79;
     border-radius: 5px;
+    padding: 1rem;
 }
 
 .header__sesion{

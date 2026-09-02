@@ -1,3 +1,8 @@
+:root {
+    --container-color:#95324b;
+    --secondary-color: rgb(59, 59, 163);
+}
+
 .popup{
    display: flex;
    background-color: rgba(31, 30, 22, 0.7);
@@ -15,7 +20,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #2f618d;
+    background-color: var(--secondary-color);
     display: flex;
     flex-direction: column;
     border-radius: 5px;
