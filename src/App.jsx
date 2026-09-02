@@ -12,7 +12,7 @@ import UserContext from './context/userContext';
 import api from './utils/api';
 import ProtectedRoute from './ProtectedRoute';
 import FullReview from './components/main/reviews/Full-review'
-import Popup from './components/popups/Popup'
+import Popup from './components/main/popups/Popup'
 import InfoTool from './components/InfoTool.jsx';
 
 
@@ -68,7 +68,7 @@ function App() {
           })
         }
       })
-      .catch(error => {
+      .catch(() => {
         toast.error('Datos incorrectos');
       })
     }
