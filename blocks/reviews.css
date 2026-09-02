@@ -1,3 +1,8 @@
+:root {
+    --container-color:#95324b;
+    --secondary-color: rgb(59, 59, 163);
+}
+
 .reviews{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -9,7 +14,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    background-color: #95324b;
+    background-color: var(--container-color);
     border: none;
     color: antiquewhite;
     height: 280px;

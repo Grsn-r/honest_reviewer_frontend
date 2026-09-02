@@ -126,17 +126,17 @@ function App() {
     })
   }
 
-  const handlePostReview = (data) => {
-    api.setReview(data)
-    .then(() => {
-      api.getReviews().then(rvs => {
-        setReviews(rvs); 
-        handleClosePopup();
-      })
-    })
-    .catch(err => {
+  const handlePostReview = async (data) => {
+    try {
+      api.setReview(data);
+      const rvs = await api.getReviews();
+      setReviews(rvs); 
+      handleClosePopup();
+    }
+    catch (err) {
       console.log(err);
-    })
+      throw err;
+    }
   }
 
   const handleReviewDelete = (rv) => {
