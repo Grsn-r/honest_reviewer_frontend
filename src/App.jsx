@@ -78,10 +78,11 @@ function App() {
     const token = localStorage.getItem('jwt');
     if (!token) {
       setIsLogged(false);
+      return;
     }
+
     api.setAuthJwt(token);
-    setIsLogged(true);
-    navigate('/');
+
     Promise.all([
       api.getReviews(),
       api.getUserData()
