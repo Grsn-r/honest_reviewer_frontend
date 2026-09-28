@@ -3,9 +3,8 @@
 
 .header{
     font-family:  "Merriweather Sans", sans-serif;
-    font-weight: 700;
+    font-weight: bold;
     display: flex;
-    flex-direction: row;
     background-color: #2f618d;
     border: none;
     border-radius: 20px;
@@ -20,7 +19,7 @@
 .header__text{
     font-weight: bold;
     margin: 0;
-    background-color: #20201e79;
+    background-color: #20201e;
     border-radius: 5px;
     padding: 1rem;
 }
@@ -33,7 +32,7 @@
     border-radius: 5px;
     background-color: #9a9792;
     color:antiquewhite;
-    padding: 4px;
+    padding: 1rem;
     font-weight: 100;
     border: none;
 }
